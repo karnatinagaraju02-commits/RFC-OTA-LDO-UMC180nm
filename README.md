@@ -26,6 +26,7 @@ This work proposes a **High-Swing RFC OTA with self-biased cascode architecture 
 | Load Capacitance | 1 µF |
 | Feedback Resistors | R1 = 50 kΩ, R2 = 100 kΩ |
 | Pass Transistor | W = 2000 µm / L = 1.03 µm (PMOS) |
+| OTA Transistor Sizing | Moderate inversion, gm/ID = 17–19 V⁻¹ (Design 2) |
 | Simulator | Cadence Spectre (BSIM3v3) |
 
 ---
@@ -115,26 +116,26 @@ Two RFC OTA variants benchmarked systematically across gain, bandwidth, phase ma
 ## Schematics
 
 ### LDO System Architecture
-![LDO System Architecture](schematics/LDO_SCHEMATIC_FINAL1.jpg)
+![LDO System Architecture](schematics/LDO%20SCHEMATIC%20FINAL1.jpg)
 
 ### Design 1 — Baseline RFC OTA
-![Design 1](schematics/BASELINE_OTA_final.jpg)
+![Design 1](schematics/BASELINE%20OTA_final.jpg)
 
 ### Design 2 — Proposed High-Swing RFC OTA
-![Design 2](schematics/PROPOSED_OTA_FINAL.jpg)
+![Design 2](schematics/PROPOSED%20OTA%20FINAL.jpg)
 
 ---
 
 ## Simulation Results
 
 ### Frequency Response (Gain, GBW, Phase Margin) — Design 1 vs Design 2
-![Frequency Response](results/gain__GBW__PM_of_design1___2.jpeg)
+![Frequency Response](results/gain%20%26GBW%20%26PM%20of%20design1%20%26%202.jpeg)
 
 ### PSRR — Design 1 vs Design 2
-![PSRR](results/psrr_of_both_designs_.png)
+![PSRR](results/psrr%20of%20both%20designs%20.png)
 
 ### Transient Response — Load Step
-![Transient](results/transient_final_v7_1_.png)
+![Transient](results/transient_final_v7(1).png)
 
 ---
 
@@ -171,9 +172,9 @@ Two RFC OTA variants benchmarked systematically across gain, bandwidth, phase ma
 
 ## Simulation Data (CSV)
 
-Raw Cadence Spectre export data is provided for reproducibility verification.
+Raw Cadence Spectre export data provided for result verification.
 
-### Nominal Results (`results/csv/`)
+### Nominal Results (`results/csv results/`)
 | File | Contents |
 |---|---|
 | `conventional ota gain.csv` | Loop gain, phase vs frequency — Design 1 |
@@ -184,12 +185,11 @@ Raw Cadence Spectre export data is provided for reproducibility verification.
 | `transient response of proposed ota.csv` | Vout transient — Design 2 |
 
 ### PVT Data (`PVTresults/`)
+**Process corners** (`pvt process/`): STB full/light load and transient at SS/TT/FF; PSRR at all corners
 
-**Process corners** (`pvt process/`): STB full load, STB light load, transient at SS/TT/FF; PSRR at all corners
+**Temperature sweep** (`pvt temp/`): STB full/light load and transient at −40°C / 27°C / 125°C; PSRR at all temperatures
 
-**Temperature sweep** (`pvt temp/`): STB full load, STB light load, transient at −40°C / 27°C / 125°C; PSRR at all temperatures
-
-**Supply voltage sweep** (`PVT VOLTAGE/`): PSRR at 1.62V / 1.8V / 1.98V; STB full load and light load at all voltages
+**Supply voltage sweep** (`PVT VOLTAGE/`): PSRR, STB full/light load at 1.62V / 1.8V / 1.98V
 
 ---
 
@@ -211,14 +211,14 @@ Raw Cadence Spectre export data is provided for reproducibility verification.
 RFC-OTA-LDO-UMC180nm/
 ├── README.md
 ├── schematics/
-│   ├── LDO_SCHEMATIC_FINAL1.jpg
-│   ├── BASELINE_OTA_final.jpg
-│   └── PROPOSED_OTA_FINAL.jpg
+│   ├── LDO SCHEMATIC FINAL1.jpg
+│   ├── BASELINE OTA_final.jpg
+│   └── PROPOSED OTA FINAL.jpg
 ├── results/
-│   ├── gain__GBW__PM_of_design1___2.jpeg
-│   ├── psrr_of_both_designs_.png
-│   ├── transient_final_v7_1_.png
-│   └── csv/
+│   ├── gain &GBW &PM of design1 & 2.jpeg
+│   ├── psrr of both designs .png
+│   ├── transient_final_v7(1).png
+│   └── csv results/
 │       ├── conventional ota gain.csv
 │       ├── proposed ota gain.csv
 │       ├── psrr of conventional ota final.csv
@@ -230,17 +230,17 @@ RFC-OTA-LDO-UMC180nm/
     │   ├── phase@full@process.png
     │   ├── phase@light@process.png
     │   ├── psrr@process.png
-    │   └── pvt process csv/ (13 CSV files)
+    │   └── pvt process csv/ (CSV files)
     ├── pvt temp/
     │   ├── phase@full@temp.png
     │   ├── phase@light@temp.png
     │   ├── psrr@temp.png
-    │   └── pvt temp csv/ (9 CSV files)
+    │   └── pvt temp csv/ (CSV files)
     └── PVT VOLTAGE/
         ├── phasemargin @full@voltage.png
         ├── phasemargin@light@voltage.png
         ├── psrr@voltage.png
-        └── pvt csv voltage/ (12 CSV files)
+        └── pvt csv voltage/ (CSV files)
 ```
 
 ---

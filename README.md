@@ -44,7 +44,7 @@ This work proposes a **High-Swing RFC OTA with self-biased cascode architecture 
 | Quiescent Current | 66.32 µA | 72.46 µA | +9.2% |
 | Settling Time | 0.73 µs | 8.06 µs | +11× |
 | Undershoot (load step) | 29 mV | 67 mV | — |
-| Current Efficiency | 99.87% | 99.86% | ≈same |
+
 
 > ⚠ **Light load phase margin (42.72°) is a known limitation.** At light load the dominant pole shifts and loop gain rises to 101.1 dB, reducing phase margin. Output capacitor selection is critical.
 
